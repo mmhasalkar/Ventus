@@ -2213,7 +2213,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
 					}
 
 					if (this._resizing) {
-						this.resize(event.pageX + this._resizing.width, event.pageY + this._resizing.height);
+						if (this.stayinspace) {
+							var spaceRect = this.space.el.getBoundingClientRect();
+							var spaceBottom = spaceRect.y + spaceRect.height;
+
+							var width = event.pageX + this._resizing.width;
+							var height = event.pageY + this._resizing.height + this.view.el.getBoundingClientRect().y >= spaceBottom ? this.height : event.pageY + this._resizing.height;
+
+							this.resize(width, height);
+						} else {
+							this.resize(event.pageX + this._resizing.width, event.pageY + this._resizing.height);
+						}
 					}
 				},
 
