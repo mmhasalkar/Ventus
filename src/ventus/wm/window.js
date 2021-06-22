@@ -50,7 +50,11 @@ function(Emitter, View) {
           <div class="wm-button-group">
             <button class="wm-minimize">&nbsp;</button>
             <button class="wm-maximize">&nbsp;</button>
-            <button class="wm-close">&nbsp;</button>
+            <button class="wm-close">&nbsp;
+			  <div class="tooltip">
+			    <span class="tooltiptext">Close dialog</span>
+		      </div>
+			</button>
           </div>
         </header>
 
